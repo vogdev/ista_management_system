@@ -32,16 +32,16 @@
                     <input type="checkbox" class="checkbox Checked" data-id="{{ $student->id }}" id="checkItem">
                   </label>
                 </th>
-                <td><a href="{{route('admin.students.show',[$student->id])}}">{{$student->name}}</a></td>
+                <td><a href="{{route('admin.students.show',[$student->id])}}/edit">{{$student->name}}</a></td>
                 <td class="ms-dn">{{$student->birthday}}</td>
                 <td class="ms-dn">{{$student->cn}}</td>
                 <td class="ms-dn">{{$student->ref}}</td>
                 <td>{{$student->classroom->name}}0{{ $student->classroom->pos_year}}G{{ ucfirst($student->classroom->group)}}</td>
                 <td>
                   @if($student->status === "red")
-                    <p class="status red">{{$student->updated_at->format('Y/m/d')}}</p>
+                    <p class="status green">présent</p>
                   @else
-                    <p class="status green">{{$student->updated_at->format('d/m/Y')}}</p>
+                    <p class="status red">absent</p>
                   @endif
                 </td>
               </tr>

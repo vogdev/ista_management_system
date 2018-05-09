@@ -18527,13 +18527,13 @@ module.exports = Component.exports
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(59)
+  __webpack_require__(64)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(61)
+var __vue_script__ = __webpack_require__(66)
 /* template */
-var __vue_template__ = __webpack_require__(62)
+var __vue_template__ = __webpack_require__(67)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -18577,7 +18577,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(17);
-module.exports = __webpack_require__(69);
+module.exports = __webpack_require__(74);
 
 
 /***/ }),
@@ -18604,10 +18604,11 @@ window.Vue = __webpack_require__(18);
 Vue.component('students', __webpack_require__(21));
 Vue.component('studentmodal', __webpack_require__(14));
 Vue.component('studentsearch', __webpack_require__(49));
+Vue.component('classrom-students', __webpack_require__(55));
 
-Vue.component('teachers', __webpack_require__(55));
+Vue.component('teachers', __webpack_require__(60));
 Vue.component('teachermodal', __webpack_require__(15));
-Vue.component('teachersearch', __webpack_require__(64));
+Vue.component('teachersearch', __webpack_require__(69));
 
 var app = new Vue({
   el: '#app'
@@ -29684,6 +29685,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -29744,9 +29748,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (_this2.selectedStudents.includes(_this2.students[i].id)) {
               switch (action) {
                 case 'unflag':
-                  _this2.students[i].status = true;break;
+                  _this2.students[i].status = 1;break;
                 case 'flag':
-                  _this2.students[i].status = false;break;
+                  _this2.students[i].status = 0;break;
               }
               // if (action == 'flag') {this.students[i].status = false}else{this.students[i].status = true}
             }
@@ -31159,9 +31163,18 @@ var render = function() {
                         class: {
                           "status green": student.status,
                           "status red": !student.status
-                        }
+                        },
+                        attrs: { vlaue: "test" }
                       },
-                      [_vm._v("tset")]
+                      [
+                        student.status == 0
+                          ? _c("span", [_vm._v("absent")])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        student.status == 1
+                          ? _c("span", [_vm._v("présent")])
+                          : _vm._e()
+                      ]
                     )
                   ])
                 ])
@@ -31520,7 +31533,407 @@ var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(58)
 /* template */
-var __vue_template__ = __webpack_require__(63)
+var __vue_template__ = __webpack_require__(59)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/students/ClassromStudents.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-47176540", Component.options)
+  } else {
+    hotAPI.reload("data-v-47176540", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(57);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("6ca45623", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-47176540\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./ClassromStudents.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-47176540\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./ClassromStudents.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.timeline-item {\n    background: #fff;\n    border: 1px solid;\n    border-color: #e5e6e9 #dfe0e4 #d0d1d5;\n    border-radius: 3px;\n    padding: 12px;\n\n    margin: 0 auto;\n    max-width: 472px;\n    min-height: 200px;\n}\ntable {\n  position: relative;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['classromstudents', 'classroom'],
+    data: function data() {
+        return {
+            loading: true,
+            students: this.classromstudents,
+            selectedStudent: '',
+            classrooms: '',
+            selectedStudents: [],
+            checked: ''
+        };
+    },
+
+    methods: {
+        selected: function selected(student) {
+            if (this.selectedStudents.includes(student.id)) {
+                var studentIndex = this.selectedStudents.indexOf(student);
+                this.selectedStudents.splice(studentIndex, 1);
+            } else {
+                this.selectedStudents.push(student.id);
+            }
+        },
+        setStatus: function setStatus(action) {
+            var _this = this;
+
+            //check if the any one of the students is selected
+            if (this.selectedStudents.length != 0) {
+                // send a put request to admin/StudentController with the students_ids and the action(flag OR unflag)
+                __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/students/' + action + '/' + this.selectedStudents).then(function (res) {
+                    // loop thru every student in students array and check if the student.id exists in the selected students array
+                    for (var i = _this.students.length - 1; i >= 0; i--) {
+                        // if the student.id exists in the selectedStudents array then switch the current student status to (true OR false ) that's depends on the action value (flag OR unflag)
+                        if (_this.selectedStudents.includes(_this.students[i].id)) {
+                            switch (action) {
+                                case 'unflag':
+                                    _this.students[i].status = 1;break;
+                                case 'flag':
+                                    _this.students[i].status = 0;break;
+                            }
+                            // if (action == 'flag') {this.students[i].status = false}else{this.students[i].status = true}
+                        }
+                    }
+                    _this.selectedStudents = [];
+                    _this.checked = false;
+                }).catch(function (err) {
+                    console.log(err);
+                });
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "columns", staticStyle: { "margin-bottom": "0" } },
+      [
+        _c("div", { staticClass: "column" }, [
+          _c("div", { staticClass: "level-right actions" }, [
+            _c(
+              "button",
+              {
+                staticClass: "button is-success level-item",
+                attrs: { id: "unflag" },
+                on: {
+                  click: function($event) {
+                    _vm.setStatus("unflag")
+                  }
+                }
+              },
+              [_vm._v("Unflag")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "button is-danger level-item",
+                attrs: { id: "flag" },
+                on: {
+                  click: function($event) {
+                    _vm.setStatus("flag")
+                  }
+                }
+              },
+              [_vm._v("Flag")]
+            )
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "columns " }, [
+      _c("div", { staticClass: "column" }, [
+        _c("table", { staticClass: "table is-striped " }, [
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.loading,
+                  expression: "loading"
+                }
+              ],
+              staticClass: "loading-container"
+            },
+            [_c("div", { staticClass: "loading animated-background" })]
+          ),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.students, function(student) {
+              return _c("tr", { key: student.id }, [
+                _c("th", [
+                  _c("label", { staticClass: "label--checkbox" }, [
+                    _c("input", {
+                      staticClass: "checkbox Checked",
+                      attrs: { type: "checkbox", id: "checkItem" },
+                      domProps: { checked: _vm.checked },
+                      on: {
+                        click: function($event) {
+                          _vm.selected(student)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(student.name))]),
+                _vm._v(" "),
+                _c("td", { staticClass: "ms-dn" }, [
+                  _vm._v(_vm._s(student.birthday))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "ms-dn" }, [
+                  _vm._v(_vm._s(student.cn))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "ms-dn" }, [
+                  _vm._v(_vm._s(student.ref))
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    _vm._s(_vm.classroom.name) +
+                      "0" +
+                      _vm._s(_vm.classroom.pos_year) +
+                      "G" +
+                      _vm._s(_vm.classroom.group.toUpperCase())
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "p",
+                    {
+                      class: {
+                        "status green": student.status,
+                        "status red": !student.status
+                      },
+                      attrs: { vlaue: "test" }
+                    },
+                    [
+                      student.status == 0
+                        ? _c("span", [_vm._v("absent")])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      student.status == 1
+                        ? _c("span", [_vm._v("présent")])
+                        : _vm._e()
+                    ]
+                  )
+                ])
+              ])
+            })
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [
+          _c("abbr", { attrs: { title: "checkbox" } }, [
+            _c("label", { staticClass: "label--checkbox" }, [
+              _c("input", {
+                staticClass: "checkbox",
+                attrs: { type: "checkbox", id: "checkAll" }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Nom & prénom")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "ms-dn" }, [_vm._v("Date de naissance")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "ms-dn" }, [_vm._v("CIN")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "ms-dn" }, [_vm._v("REF")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Groupe")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Status")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-47176540", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(61)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(63)
+/* template */
+var __vue_template__ = __webpack_require__(68)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -31560,13 +31973,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 56 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(57);
+var content = __webpack_require__(62);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -31586,7 +31999,7 @@ if(false) {
 }
 
 /***/ }),
-/* 57 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -31600,7 +32013,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 58 */
+/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31695,13 +32108,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 59 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(60);
+var content = __webpack_require__(65);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -31721,7 +32134,7 @@ if(false) {
 }
 
 /***/ }),
-/* 60 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -31735,7 +32148,7 @@ exports.push([module.i, "\n.password-eye[data-v-0a6032fc] {\n    cursor: pointer
 
 
 /***/ }),
-/* 61 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31866,7 +32279,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 62 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -32281,7 +32694,7 @@ if (false) {
 }
 
 /***/ }),
-/* 63 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -32316,7 +32729,7 @@ var render = function() {
                       _c("figure", { staticClass: "image is-4by3" }, [
                         _c("img", {
                           staticClass: "svg-img",
-                          attrs: { src: "/img/user.svg", alt: teacher.name }
+                          attrs: { src: "/img/teacher.svg", alt: teacher.name }
                         })
                       ])
                     ]),
@@ -32399,19 +32812,19 @@ if (false) {
 }
 
 /***/ }),
-/* 64 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(65)
+  __webpack_require__(70)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(67)
+var __vue_script__ = __webpack_require__(72)
 /* template */
-var __vue_template__ = __webpack_require__(68)
+var __vue_template__ = __webpack_require__(73)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -32451,13 +32864,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 65 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(66);
+var content = __webpack_require__(71);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -32477,7 +32890,7 @@ if(false) {
 }
 
 /***/ }),
-/* 66 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -32491,7 +32904,7 @@ exports.push([module.i, "\n.search-bar[data-v-e4d6b7ba]{\n   position: relative;
 
 
 /***/ }),
-/* 67 */
+/* 72 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -32569,7 +32982,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 68 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -32657,7 +33070,7 @@ if (false) {
 }
 
 /***/ }),
-/* 69 */
+/* 74 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

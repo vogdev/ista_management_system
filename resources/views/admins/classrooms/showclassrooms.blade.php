@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="columns">
-  <p>{{ $classrooms1[0]->name }} première année</p>
+    <p> {{$classrooms1[0]->name}} première année</p>
   </div>
   <div class="columns">
 		@foreach ($classrooms1 as $classroom)

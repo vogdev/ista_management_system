@@ -47,7 +47,10 @@
               <td class="ms-dn" >{{student.ref}}</td>
               <td>{{student.classroom.name}}0{{ student.classroom.pos_year}}G{{student.classroom.group.toUpperCase()}}</td>
               <td>
-                <p :class="{ 'status green' : student.status, 'status red' : !student.status}">tset</p>
+                 <p :class="{ 'status green' : student.status, 'status red' : !student.status}" vlaue="test">
+                   <span v-if="student.status == 0">absent</span>
+                   <span v-if="student.status == 1">présent</span>
+                </p>
             </td>
 
             </tr>
@@ -117,8 +120,8 @@
                                       if(this.selectedStudents.includes(this.students[i].id))
                                       {
                                         switch (action) {
-                                            case 'unflag': this.students[i].status = true; break;  
-                                            case 'flag': this.students[i].status = false; break;
+                                            case 'unflag': this.students[i].status = 1; break;  
+                                            case 'flag': this.students[i].status = 0; break;
                                          }
                                          // if (action == 'flag') {this.students[i].status = false}else{this.students[i].status = true}
                                       }

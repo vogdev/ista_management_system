@@ -54,3 +54,4 @@ Route::resource('/students', 'StudentController', ['only' => [
     'index','show'
 ]]);
 Route::get('students/flag/{students_ids}', 'StudentController@flag')->name('students.flag');
+Route::get('students/unflag/{students_ids}', 'StudentController@unflag')->name('students.unflag');

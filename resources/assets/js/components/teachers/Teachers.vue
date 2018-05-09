@@ -20,7 +20,7 @@
                 <a v-on:click.stop.prevent="showModal(teacher)">
                     <div class="card-image">
                         <figure class="image is-4by3">
-                            <img class="svg-img" src="/img/user.svg" :alt="teacher.name">
+                            <img class="svg-img" src="/img/teacher.svg" :alt="teacher.name">
                         </figure>
                     </div>
                     <div class="card-content">  

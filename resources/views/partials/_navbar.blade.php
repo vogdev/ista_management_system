@@ -12,8 +12,8 @@
   </div>
   <div class="navbar-menu" id="navMenu">
     <div class="navbar-start">
-        <a class="navbar-item  is-active" href="#">google</a>
-        <a class="navbar-item" href="#">youtube</a>
+        {{--  <a class="navbar-item  is-active" href="#">google</a>
+        <a class="navbar-item" href="#">youtube</a>  --}}
     </div>
     <div class="navbar-end">
       <div class="navbar-item has-dropdown is-hoverable">

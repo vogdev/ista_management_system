@@ -23,10 +23,15 @@ class StudentController extends Controller
         //
     }
     public function flag($students_ids){
-      $ids = explode(",", $students_ids);   // 1,2  -->   ["1","2"]
-        DB::table('students')->whereIn('id', $ids)->update(['status' => 'red']);
-      return back();
-    }    
+        $ids = explode(",", $students_ids);   // 1,2  -->   ["1","2"]
+        DB::table('students')->whereIn('id', $ids)->update(['status' => 0]);
+        return response(200);
+    }  
+    public function unflag($students_ids){
+        $ids = explode(",", $students_ids);   // 1,2  -->   ["1","2"]
+        DB::table('students')->whereIn('id', $ids)->update(['status' => 1]);
+        return response(200);
+      }    
 
     public function store(Request $request)
     {
